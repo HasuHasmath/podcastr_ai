@@ -44,7 +44,8 @@ const CreatePodcast = () => {
   );
   const [imageUrl, setImageUrl] = useState("");
 
-  const [audioUrl, setAudioUrl] = useState("");
+  const [audioUrl, setAudioUrl] = useState("")
+  // const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [audioStorageId, setAudioStorageId] = useState<Id<"_storage"> | null>(
     null
   );
@@ -52,6 +53,7 @@ const CreatePodcast = () => {
 
   const [voicePrompt, setVoicePrompt] = useState("");
   const [voiceType, setVoiceType] = useState<string | null>(null);
+  // const [voiceType, setVoiceType] = useState("")
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -127,7 +129,7 @@ const CreatePodcast = () => {
                 </SelectContent>
                 {voiceType && (
                   <audio
-                    src="{`/${voiceType}.mp3"
+                    src={`/${voiceType}.mp3`}
                     autoPlay
                     className="hidden"
                   />
@@ -159,7 +161,7 @@ const CreatePodcast = () => {
             <GeneratePodcast
               setAudioStorageId={setAudioStorageId}
               setAudio={setAudioUrl}
-              voiceType={setVoiceType}
+              voiceType={voiceType!}
               audio={audioUrl}
               voicePrompt={voicePrompt}
               setVoicePrompt={setVoicePrompt}
